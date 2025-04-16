@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ChiSiamo from "./pages/Chi-siamo"
 import ListaPost from "./pages/Lista-post"
 import Homepage from "./pages/Homepage"
+import Navbar from "./components/Navbar"
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
     <BrowserRouter>
       <header>
         <h1>React Blog Pages</h1>
+        <Navbar />
       </header>
       <main>
         <Routes>
