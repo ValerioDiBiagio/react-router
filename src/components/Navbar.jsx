@@ -9,6 +9,5 @@ export default function Navbar() {
                 <li><NavLink to="/lista-post">Lista dei post</NavLink></li>
             </ul>
         </nav>
-
     )
 }
