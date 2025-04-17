@@ -8,13 +8,22 @@ export default function SinglePost() {
 
     const { id } = useParams();
 
-    const [singlePost, setSinglePost] = useState({});
+    const [singlePost, setSinglePost] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setLoading(true);
         axios.get(`${endpoint}/${id}`)
-            .then(res => setSinglePost(res.data))
-
+            .then(res => {
+                setSinglePost(res.data);
+                setLoading(false);
+            })
+            .catch(err)
     }, [])
+
+    if (loading) {
+        return <div>Loading...</div>
+    }
 
     return (
         <section>
