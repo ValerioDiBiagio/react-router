@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import axios from "axios"
 
 const endpoint = 'https://jsonplaceholder.typicode.com/posts'
@@ -7,6 +7,7 @@ const endpoint = 'https://jsonplaceholder.typicode.com/posts'
 export default function SinglePost() {
 
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const [singlePost, setSinglePost] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -26,7 +27,7 @@ export default function SinglePost() {
             .finally(() => {
                 setLoading(false);
             })
-    }, [])
+    }, [id])
 
     if (error) {
         return <div>Error...</div>
@@ -40,6 +41,7 @@ export default function SinglePost() {
         <section>
             <h2>{singlePost.title}</h2>
             <p>{singlePost.body}</p>
+            <button onClick={() => navigate(-1)}>Torna alla pagina precedente</button>
         </section>
     )
 }
