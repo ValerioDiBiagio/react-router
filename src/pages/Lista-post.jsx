@@ -17,7 +17,7 @@ export default function ListaPost() {
 
     return (
         <section>
-            <h2>Lista dei post</h2>
+            <h2>Posts</h2>
             <ul>
                 {postList.map(post =>
                     <li key={post.id}>

@@ -6,7 +6,7 @@ export default function Navbar() {
             <ul>
                 <li><NavLink to="/">Homepage</NavLink></li>
                 <li><NavLink to="/chi-siamo">About</NavLink></li>
-                <li><NavLink to="/lista-post">Lista dei post</NavLink></li>
+                <li><NavLink to="/lista-post">Posts</NavLink></li>
             </ul>
         </nav>
     )
