@@ -4,6 +4,7 @@ import ListaPost from "./pages/Lista-post"
 import Homepage from "./pages/Homepage"
 import DefaultLayout from "./layouts/DefaultLayout"
 import SinglePost from "./pages/Single-post"
+import NotFound from "./pages/NotFound"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/lista-post" element={<ListaPost />} />
           <Route path="/lista-post/:id" element={<SinglePost />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )
