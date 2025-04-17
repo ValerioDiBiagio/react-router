@@ -10,16 +10,27 @@ export default function SinglePost() {
 
     const [singlePost, setSinglePost] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         setLoading(true);
         axios.get(`${endpoint}/${id}`)
             .then(res => {
                 setSinglePost(res.data);
+
+            })
+            .catch(err => {
+                console.error(err)
+                setError(true);
+            })
+            .finally(() => {
                 setLoading(false);
             })
-            .catch(err)
     }, [])
+
+    if (error) {
+        return <div>Error...</div>
+    }
 
     if (loading) {
         return <div>Loading...</div>
